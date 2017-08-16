@@ -1,0 +1,32 @@
+<!--caelumpic/src/app/cadastro/cadastro.component.html-->
+<header class="jumbotron">
+  <h1 class="text-center">Cadastrar Fotos</h1>
+</header>
+<section class="container">
+  <div class="row">
+      <form class="col-sm-6">
+          <div class="form-group">
+              <label>Título</label>
+              <input name="titulo" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>URL</label>
+              <input name="url" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Descrição</label>
+              <textarea name="descricao" class="form-control">
+              </textarea>
+          </div>
+
+          <!-- <a [routerLink]="['']" class="btn btn-default">Voltar</a> -->
+
+          <button type="submit" class="btn btn-primary">
+              Salvar
+          </button>
+      </form>
+  </div>
+  <aside class="col-sm-4">
+      <!-- Preview do cadastro aqui -->
+  </aside>
+</section>
