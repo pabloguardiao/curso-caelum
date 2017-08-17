@@ -4,22 +4,25 @@
 </header>
 <section class="container">
   <div class="row">
-      <form class="col-sm-6">
+      <form class="col-sm-6" (ngSubmit)="cadastrar($event)">
           <div class="form-group">
               <label>Título</label>
-              <input name="titulo" class="form-control">
+              <input name="titulo" class="form-control"
+                [(ngModel)]="foto.titulo">
           </div>
           <div class="form-group">
               <label>URL</label>
-              <input name="url" class="form-control">
+              <input name="url" class="form-control"
+                [(ngModel)]="foto.url">
           </div>
           <div class="form-group">
               <label>Descrição</label>
-              <textarea name="descricao" class="form-control">
+              <textarea name="descricao" class="form-control"
+                [(ngModel)]="foto.descricao">
               </textarea>
           </div>
 
-          <!-- <a [routerLink]="['']" class="btn btn-default">Voltar</a> -->
+          <a [routerLink]="['']" class="btn btn-default">Voltar</a>
 
           <button type="submit" class="btn btn-primary">
               Salvar
