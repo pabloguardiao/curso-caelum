@@ -11,13 +11,15 @@
             <a [routerLink]="['cadastro']" class="btn btn-primary">
               Nova Foto</a>
           </span>
-        </div>
+          <input type="text" class="form-control" 
+            placeholder="Filtrar pelo título" #textoProcurado>
+    </div>
       </form>
     </div>
   </div>
   <br>
   <div class="row">
-    <painel *ngFor="let foto of fotos" [titulo]="foto.titulo"
+    <painel *ngFor="let foto of fotos | filtroPorTitulo:textoProcurado.value" [titulo]="foto.titulo"
       class="col-md-2">
         <foto [url]="foto.url" [title]="foto.titulo"></foto>
     </painel>
