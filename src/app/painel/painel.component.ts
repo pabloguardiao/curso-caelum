@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 
 @Component({
     selector: "painel",
-    templateUrl: "./painel.component.html"
+    templateUrl: "./painel.component.html",
+    styleUrls: ["./painel.component.css"]
+    //,encapsulation: ViewEncapsulation.None
 })
 export class PainelComponent implements OnInit {
     @Input()

@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'foto',
-  templateUrl: './foto.component.html'
+  templateUrl: './foto.component.html',
+  styleUrls: ["./foto.component.css"]
+  //,encapsulation: ViewEncapsulation.None
 })
 export class FotoComponent {
   @Input() 
