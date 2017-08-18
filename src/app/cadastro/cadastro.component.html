@@ -1,40 +1,48 @@
 <!--caelumpic/src/app/cadastro/cadastro.component.html-->
 <header class="jumbotron">
-  <h1 class="text-center">Cadastrar Fotos</h1>
+    <h1 class="text-center">Cadastrar Fotos</h1>
 </header>
 <section class="container">
-  <div class="row">
-      <form class="col-sm-6" (ngSubmit)="cadastrar($event)"
-      #meuFormulario="ngForm">
-          <div class="form-group">
-              <label>Título</label>
-              <input name="titulo" class="form-control" 
-              [(ngModel)]="foto.titulo" #titulo="ngModel" required>
-              <span *ngIf="titulo.invalid" class="form-control alert-danger">
-                Titulo Obrigatório!
-              </span>
-          </div>
-          <div class="form-group">
-              <label>URL</label>
-              <input name="url" class="form-control"
-                [(ngModel)]="foto.url">
-          </div>
-          <div class="form-group">
-              <label>Descrição</label>
-              <textarea name="descricao" class="form-control"
-              [(ngModel)]="foto.descricao">
-              </textarea>
-          </div>
+    <div class="row">
+        <form class="col-sm-6" (ngSubmit)="cadastrar($event)"
+        [formGroup]="meuForm">
+            <div class="form-group">
+                <label>Título</label>
+                <input name="titulo" class="form-control" 
+                [(ngModel)]="foto.titulo" formControlName="titulo">
+                <div *ngIf="meuForm.controls.titulo.invalid">
+                    <span *ngIf="meuForm.controls.titulo.errors.required" 
+                    class="form-control alert-danger">
+                        Titulo Obrigatório!
+                    </span>
+                    
+                    <span *ngIf="meuForm.controls.titulo.errors.minlength" 
+                    class="form-control alert-danger">
+                        Tem que ter no mínimo 4 caracteres!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input name="url" class="form-control"
+                    [(ngModel)]="foto.url" formControlName="url">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea name="descricao" class="form-control"
+                [(ngModel)]="foto.descricao" formControlName="descricao">
+                </textarea>
+            </div>
 
-          <a [routerLink]="['']" class="btn btn-default">Voltar</a>
+            <a [routerLink]="['']" class="btn btn-default">Voltar</a>
 
-          <button type="submit" class="btn btn-primary"
-          [disabled]="meuFormulario.form.invalid">
-              Salvar
-          </button>
-      </form>
-  </div>
-  <aside class="col-sm-4">
-      <!-- Preview do cadastro aqui -->
-  </aside>
+            <button type="submit" class="btn btn-primary"
+            [disabled]="meuForm.invalid">
+                Salvar
+            </button>
+        </form>
+    </div>
+    <aside class="col-sm-4">
+        <!-- Preview do cadastro aqui -->
+    </aside>
 </section>

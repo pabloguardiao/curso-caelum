@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import "rxjs/add/operator/map";
 
 import { AppComponent } from './app.component';
@@ -23,7 +23,8 @@ import { routing } from "./app.routes";
     FotoModule,
     PainelModule,
     routing,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
