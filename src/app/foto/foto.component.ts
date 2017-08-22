@@ -7,10 +7,13 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   //,encapsulation: ViewEncapsulation.None
 })
 export class FotoComponent {
-  @Input() 
-  titulo: string = "";
+
+  _id: string = "";
   
-  @Input() 
+  @Input()
+  titulo: string = "";
+
+  @Input()
   url: string = "";
 
   descricao: string = "";

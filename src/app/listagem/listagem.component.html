@@ -3,7 +3,8 @@
 </div>
 
 <div class="container">
-  <div class="row">
+    <p class="alert alert-info" *ngIf="mensagem.length">{{ mensagem }} </p>
+    <div class="row">
     <div class="col-md-12">
       <form action="">
         <div class="input-group">
@@ -22,6 +23,11 @@
     <painel class="col-md-2" [titulo]="foto.titulo"
       *ngFor="let foto of fotos | filtroPorTitulo:textoProcurado.value">
       <foto [url]="foto.url" [title]="foto.titulo"></foto>
+      <button class="btn btn-danger btn-block"
+      (click)="remove(foto)">
+        Remover
+      </button>
+
     </painel>
   </div>
 </div>
