@@ -3,18 +3,18 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'foto',
   templateUrl: './foto.component.html',
-  styleUrls: ["./foto.component.css"]
+  styleUrls: ['./foto.component.css']
   //,encapsulation: ViewEncapsulation.None
 })
 export class FotoComponent {
 
-  _id: string = "";
-  
-  @Input()
-  titulo: string = "";
+  _id = '';
 
   @Input()
-  url: string = "";
+  titulo = '';
 
-  descricao: string = "";
+  @Input()
+  url = '';
+
+  descricao = '';
 }

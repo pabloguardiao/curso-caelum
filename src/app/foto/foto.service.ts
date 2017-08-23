@@ -26,7 +26,7 @@ export class FotoService {
         const headers = this.headers;
 
         if (foto._id) {
-            return this.http.put(this.url + '/' + foto._id, 
+            return this.http.put(this.url + '/' + foto._id,
                 JSON.stringify(foto), { headers });
         } else {
             return this.http.post(this.url, JSON.stringify(foto), { headers });
