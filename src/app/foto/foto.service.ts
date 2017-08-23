@@ -21,15 +21,17 @@ export class FotoService {
         return this.http.get(this.url).map(res => res.json());
     }
 
-    cadastra(foto: FotoComponent): Observable<Response> {
+    cadastra(foto: FotoComponent): Observable<any> {
 
         const headers = this.headers;
 
         if (foto._id) {
             return this.http.put(this.url + '/' + foto._id,
-                JSON.stringify(foto), { headers });
+                JSON.stringify(foto), { headers })
+                .map(() => ({mensagem: 'Foto alterada', inclusao: false}));
         } else {
-            return this.http.post(this.url, JSON.stringify(foto), { headers });
+            return this.http.post(this.url, JSON.stringify(foto), { headers })
+                .map(() => ({mensagem: 'Foto Incluida', inclusao: true}));
         }
     }
 

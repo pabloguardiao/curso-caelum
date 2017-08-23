@@ -3,7 +3,7 @@ import { FotoComponent } from '../foto/foto.component';
 import { Http, Headers } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FotoService } from '../foto/foto.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cadastro',
@@ -15,9 +15,11 @@ export class CadastroComponent {
   service: FotoService;
   meuForm: FormGroup;
   route: ActivatedRoute;
-
+  mensagem = '';
+  router: Router;
+  
   constructor(service: FotoService, fb: FormBuilder,
-  route: ActivatedRoute) {
+  route: ActivatedRoute, router: Router) {
     this.service = service;
     this.meuForm = fb.group({titulo: ['', Validators.compose(
       [Validators.required, Validators.minLength(4)])],
@@ -32,14 +34,20 @@ export class CadastroComponent {
         );
       }
     });
+    this.router = router;
   }
-
+  
   cadastrar(event: Event) {
     this.service.cadastra(this.foto)
       .subscribe(
-          () => {
-            console.log('OK');
+          res => {
+            this.mensagem = res.mensagem;
+            // console.log(res.mensagem);
             this.foto = new FotoComponent();
+            if (!res.inclusao) {
+              this.router.navigate(['']);
+
+            };
           }, //this.foto = new FotoComponent(),
           err => { console.log(err); }
         );
