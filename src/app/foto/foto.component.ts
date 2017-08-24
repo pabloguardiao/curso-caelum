@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Foto } from "./foto";
 
 @Component({
   selector: 'foto',
@@ -7,14 +8,10 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   //,encapsulation: ViewEncapsulation.None
 })
 export class FotoComponent {
-
-  _id = '';
-
-  @Input()
-  titulo = '';
+  
+  foto: Foto;
 
   @Input()
   url = '';
 
-  descricao = '';
 }

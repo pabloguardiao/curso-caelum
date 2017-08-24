@@ -3,7 +3,7 @@
     <h1 class="text-center">Cadastrar Fotos</h1>
 </header>
 <section class="container">
-    <p class="alert alert-info" *ngIf="mensagem.length">{{ mensagem }} </p>
+    <p class="alert alert-info" *ngIf="mensagem.length">{{ mensagem }}</p>
     <div class="row">
         <form class="col-sm-6" (ngSubmit)="cadastrar($event)"
         [formGroup]="meuForm">

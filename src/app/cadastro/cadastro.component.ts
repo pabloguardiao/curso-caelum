@@ -4,6 +4,7 @@ import { Http, Headers } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FotoService } from '../foto/foto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Foto } from "../foto/foto";
 
 @Component({
   selector: 'cadastro',
@@ -11,15 +12,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CadastroComponent {
 
-  foto: FotoComponent = new FotoComponent();
-  service: FotoService;
-  meuForm: FormGroup;
-  route: ActivatedRoute;
+  private foto: Foto = new Foto();
+  // service: FotoService;
+  private meuForm: FormGroup;
+  // route: ActivatedRoute;
   mensagem = '';
-  router: Router;
+  // router: Router;
   
-  constructor(service: FotoService, fb: FormBuilder,
-  route: ActivatedRoute, router: Router) {
+  constructor(private service: FotoService, private fb: FormBuilder,
+    private route: ActivatedRoute, private router: Router) {
     this.service = service;
     this.meuForm = fb.group({titulo: ['', Validators.compose(
       [Validators.required, Validators.minLength(4)])],
@@ -43,12 +44,12 @@ export class CadastroComponent {
           res => {
             this.mensagem = res.mensagem;
             // console.log(res.mensagem);
-            this.foto = new FotoComponent();
+            this.foto = new Foto();
             if (!res.inclusao) {
               this.router.navigate(['']);
 
             };
-          }, //this.foto = new FotoComponent(),
+          }, //this.foto = new Foto(),
           err => { console.log(err); }
         );
   }

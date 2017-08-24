@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FotoService } from '../foto/foto.service';
-import { FotoComponent } from '../foto/foto.component';
+import { Foto } from "../foto/foto";
 
 @Component({
   selector: 'listagem',
@@ -9,7 +9,7 @@ import { FotoComponent } from '../foto/foto.component';
 export class ListagemComponent {
 
   title = 'Caelum Pic';
-  fotos: Object[] = [];
+  fotos: Foto[] = [];
   service: FotoService;
   mensagem = '';
 
@@ -18,7 +18,7 @@ export class ListagemComponent {
     this.service.lista().subscribe(fotos => { this.fotos = fotos; });
   }
 
-  remove(foto: FotoComponent) {
+  remove(foto: Foto) {
     // alert(foto.titulo);
     this.service.remove(foto).subscribe(
       () => {
